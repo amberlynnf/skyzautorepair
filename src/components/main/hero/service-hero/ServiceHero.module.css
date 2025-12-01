@@ -1,0 +1,168 @@
+:root {
+  --red-500: #d40000;
+  --card-shadow: none;
+}
+
+.root {
+  padding: 60px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  color: var(--red-500);
+  font-weight: 900;
+  font-size: 34px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.sliderWrapper {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.slider {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.55s ease;
+}
+
+.card {
+  min-width: 200px;
+  max-width: 330px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 15px;
+  border-radius: 26px;
+  background: white;
+  box-shadow: 0 15px 28px rgba(0, 0, 0, 0.08);
+  transition: 350ms ease;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  border: 3px solid rgba(212, 0, 0, 0.75);
+  box-shadow: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.outerRedCircle {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  border: 4px solid var(--red-500);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  transition: 350ms ease;
+}
+
+.iconInnerCircle {
+  width: 85px;
+  height: 85px;
+  background: var(--red-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 350ms ease;
+}
+
+.iconInnerCircle svg {
+  width: 38px;
+  height: 38px;
+  color: white;
+}
+
+.cardText {
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  background: var(--red-500);
+}
+
+.card:hover .cardText {
+  color: white;
+}
+
+.card:hover .outerRedCircle {
+  border-color: white;
+}
+
+.card:hover .iconInnerCircle {
+  background: white;
+}
+
+.card:hover .iconInnerCircle svg {
+  color: var(--red-500);
+}
+
+.bottomControls {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  z-index: 2;
+}
+
+.navBtn {
+  width: 42px;
+  height: 42px;
+  background: white;
+  border: 2px solid var(--red-500);
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--red-500);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.navBtn:hover {
+  background: var(--red-500);
+  color: white;
+}
+
+.dotsWrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d3d3d3;
+  transition: 0.3s ease;
+}
+
+.dotActive {
+  background: var(--red-500);
+  transform: scale(1.25);
+}

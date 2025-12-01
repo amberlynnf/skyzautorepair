@@ -1,0 +1,154 @@
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  gap: 40px;
+}
+
+.leftSection {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  background: #ffffff;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gearWrapper {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gears {
+  width: 320px;
+  height: 500px;
+  opacity: 0.85;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+}
+
+.leftTextBox {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+}
+
+.why {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ff3b3b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mainTitle {
+  font-size: 44px;
+  font-weight: 900;
+  margin-top: 8px;
+  line-height: 1.04;
+}
+
+.appointmentBtn {
+  margin-top: 20px;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  background: linear-gradient(90deg, #ff0000, #6e0101);
+  background-size: 200%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-position 0.5s ease, transform 0.5s ease;
+}
+
+.appointmentBtn:hover {
+  background-position: right;
+  transform: scale(1.08);
+}
+
+.rightSection {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding-top: 20px;
+}
+
+.featureBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconCircle {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 7px solid rgba(255,59,59,0.45);
+  background: rgba(255,59,59,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+
+.featureTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+}
+
+.logoRow {
+  display: flex;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.logoCard,
+.logoCard2 {
+  background: white;
+  padding: 18px 28px;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoCard {
+  transform: rotate(-3deg) translateY(6px);
+}
+
+.logoCard2 {
+  transform: rotate(3deg) translateY(2px);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+@media (max-width: 980px) {
+  .root {
+    flex-direction: column;
+  }
+  .leftSection, .rightSection {
+    width: 100%;
+  }
+  .gears {
+    width: 250px;
+  }
+  .leftTextBox {
+    width: 80%;
+  }
+}
