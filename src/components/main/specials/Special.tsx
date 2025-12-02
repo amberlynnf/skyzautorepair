@@ -17,9 +17,9 @@ interface CouponProps {
 }
 
 export function Specials({}: SpecialProps) {
-  useEffect(() => {
-    window.scrollTo(0, 0); 
-  }, []);
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, []);
 }
 
 const Coupon = ({ title, desc, expires, align }: CouponProps) => {
@@ -170,6 +170,10 @@ const Coupon = ({ title, desc, expires, align }: CouponProps) => {
 };
 
 export function Special({ id }: SpecialProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header opened={false} toggle={() => {}} />
