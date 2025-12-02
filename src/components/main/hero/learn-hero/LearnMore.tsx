@@ -40,7 +40,7 @@ export function LearnMore({ id }: LearnMoreProps) {
 
           <button
             className={classes.appointmentBtn}
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate("/about")}
           >
             LEARN MORE ABOUT US
           </button>

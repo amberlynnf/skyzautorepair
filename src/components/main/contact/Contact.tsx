@@ -1,9 +1,19 @@
-import {Text,Title,Container,AppShell,TextInput,Textarea,Button,} from "@mantine/core";
+import {
+  Text,
+  Title,
+  Container,
+  AppShell,
+  TextInput,
+  Textarea,
+  Button,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState, useEffect } from "react";
 import { Header } from "../../header/Header";
 import { Footer } from "../../footer/Footer";
 import classes from "./Contact.module.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface ContactProps {
   id?: string;
@@ -17,8 +27,25 @@ export function Contact({ id }: ContactProps) {
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []); 
+  
+      useEffect(() => {
+      window.scrollTo(0, 0);
+  
+      AOS.init({
+        duration: 900,
+        once: true,
+        easing: "ease-out",
+      });
+  
+      AOS.refresh(); 
+    }, []);
+  
+
   useEffect(() => {
-    window.scrollTo(0, 0);    
+    window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -54,21 +81,21 @@ export function Contact({ id }: ContactProps) {
         main: {
           padding: 0,
           margin: 0,
+          background: "transparent",
+          overflow: "visible",
+          minHeight: "100vh",
         },
       }}
-      padding="md"
+      padding={0}
     >
       <Header opened={opened} toggle={toggle} />
-
       <div id={id} className={classes.root}>
-        <div className={classes.overlay}></div>
-
         <Container size="lg" className={classes.inner}>
           <div className={classes.card}>
             <div className={classes.left}>
               <div className={classes.redStroke}></div>
 
-              <Title order={1} className={classes.heading}>
+              <Title order={1} className={classes.heading} data-aos="fade-left">
                 GET IN TOUCH
               </Title>
 
@@ -80,7 +107,11 @@ export function Contact({ id }: ContactProps) {
               <div className={classes.infoGroup}>
                 <Text className={classes.label}>ADDRESS</Text>
                 <Text className={classes.address}>
-                  <a href="https://maps.app.goo.gl/d49L1ihn1TNVbVzUA" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://maps.app.goo.gl/d49L1ihn1TNVbVzUA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     13830 Brownsville St, Houston, TX 77015, United States
                   </a>
                 </Text>
@@ -142,9 +173,9 @@ export function Contact({ id }: ContactProps) {
             </form>
           </div>
         </Container>
+        <div className={classes.bottomLine}></div>
+        <Footer />
       </div>
-
-      <Footer />
     </AppShell>
   );
 }

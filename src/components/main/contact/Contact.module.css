@@ -1,12 +1,20 @@
 .root {
-  background: #f5f5f5;
-  min-height: calc(100vh - 60px - 190px); 
+  background-image: url("/images/redwhitebackground.png");
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   padding-top: 18px;
   padding-bottom: 40px;
 }
+
 
 .inner {
   z-index: 2;
@@ -118,6 +126,13 @@
   overflow: hidden;
   margin-top: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.bottomLine {
+  width: 100%;
+  height: 6px;
+  background: #c40000;
+  margin-top: 60px;
 }
 
 @media (max-width: 768px) {
