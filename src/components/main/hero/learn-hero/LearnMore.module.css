@@ -84,6 +84,12 @@
   padding-top: 20px;
 }
 
+.featuresWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .featureBox {
   display: flex;
   align-items: center;
@@ -141,14 +147,113 @@
 @media (max-width: 980px) {
   .root {
     flex-direction: column;
+    gap: 50px;
   }
-  .leftSection, .rightSection {
+
+  .leftSection,
+  .rightSection {
     width: 100%;
   }
+
   .gears {
-    width: 250px;
+    width: 240px;
   }
+
   .leftTextBox {
     width: 80%;
+  }
+
+  .logoRow {
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .root {
+    padding: 20px 0;
+    gap: 30px;
+  }
+
+  .leftSection {
+    height: auto;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+  }
+
+  .leftTextBox {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    text-align: center;
+    width: 90%;
+  }
+
+  .mainTitle {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .why {
+    font-size: 16px;
+  }
+
+  .appointmentBtn {
+    font-size: 15px;
+    padding: 12px 22px;
+  }
+
+  .gearWrapper {
+    position: relative;
+    right: 0;
+    top: 0;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .gears {
+    width: 180px;
+    height: auto;
+  }
+
+  .rightSection {
+    padding-top: 0;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .featuresWrapper {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+  }
+
+  .featureBox {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .iconCircle {
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+  }
+
+  .featureTitle {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .logoRow {
+    margin-top: 10px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 110px;
   }
 }

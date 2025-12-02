@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Title } from "@mantine/core";
 import {
   IconWind,
@@ -29,11 +29,42 @@ const services: ServiceItem[] = [
 ];
 
 export default function ServiceHero() {
-  const cardWidth = 300 + 45;
-  const visibleCards = 6;
-  const maxIndex = services.length - visibleCards;
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
+  const [cardWidth, setCardWidth] = useState(330);
+  const [visibleCards, setVisibleCards] = useState(6);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (!cardRef.current) return;
+
+      const rect = cardRef.current.getBoundingClientRect();
+      const width = rect.width;
+
+      const w = window.innerWidth;
+
+      if (w <= 480) {
+      
+        setVisibleCards(1.15);
+        setCardWidth(width + 20);
+      } else if (w <= 780) {
+    
+        setVisibleCards(2.5);
+        setCardWidth(width + 28);
+      } else {
+     
+        setVisibleCards(6);
+        setCardWidth(width + 40);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.ceil(services.length - visibleCards);
 
   const next = () => {
     if (index < maxIndex) setIndex(index + 1);
@@ -58,7 +89,11 @@ export default function ServiceHero() {
             }}
           >
             {services.map((service, i) => (
-              <div key={i} className={classes.card}>
+              <div
+                key={i}
+                className={classes.card}
+                ref={i === 0 ? cardRef : null}
+              >
                 <div className={classes.outerRedCircle}>
                   <div className={classes.iconInnerCircle}>{service.icon}</div>
                 </div>

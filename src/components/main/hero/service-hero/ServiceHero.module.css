@@ -166,3 +166,80 @@
   background: var(--red-500);
   transform: scale(1.25);
 }
+
+@media (max-width: 768px) {
+  .slider {
+    gap: 28px;
+  }
+
+  .card {
+    min-width: 260px;
+    max-width: 260px;
+    height: 320px;
+    padding: 28px 12px;
+  }
+
+  .outerRedCircle {
+    width: 85px;
+    height: 85px;
+  }
+
+  .iconInnerCircle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .iconInnerCircle svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cardText {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .slider {
+    gap: 22px;
+  }
+
+  .card {
+    min-width: 220px;
+    max-width: 220px;
+    height: 300px;
+    padding: 24px 10px;
+  }
+
+  .outerRedCircle {
+    width: 75px;
+    height: 75px;
+  }
+
+  .iconInnerCircle {
+    width: 58px;
+    height: 58px;
+  }
+
+  .iconInnerCircle svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .cardText {
+    font-size: 13px;
+  }
+
+  .bottomControls {
+    margin-top: 20px;
+    gap: 18px;
+  }
+
+  .navBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+

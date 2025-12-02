@@ -4,7 +4,6 @@ import {
   IconCar,
   IconClock,
   IconWifi,
-  IconArrowBigRightLineFilled,
 } from "@tabler/icons-react";
 import classes from "./LearnMore.module.css";
 
@@ -17,7 +16,6 @@ export function LearnMore({ id }: LearnMoreProps) {
 
   return (
     <div id={id} className={classes.root}>
-   
       <div className={classes.leftSection}>
         <div className={classes.gearWrapper}>
           <img src="/images/gears.png" alt="gears" className={classes.gears} />
@@ -42,25 +40,27 @@ export function LearnMore({ id }: LearnMoreProps) {
       </div>
 
       <Container size="lg" className={classes.rightSection}>
-        <div className={classes.featureBox}>
-          <div className={classes.iconCircle}>
-            <IconCar size={32} stroke={1.7} color="#ff3b3b" />
+        <div className={classes.featuresWrapper}>
+          <div className={classes.featureBox}>
+            <div className={classes.iconCircle}>
+              <IconCar size={30} stroke={1.7} color="#ff3b3b" />
+            </div>
+            <Text className={classes.featureTitle}>FREE SHUTTLE</Text>
           </div>
-          <Text className={classes.featureTitle}>FREE SHUTTLE</Text>
-        </div>
 
-        <div className={classes.featureBox}>
-          <div className={classes.iconCircle}>
-            <IconClock size={32} stroke={1.7} color="#ff3b3b" />
+          <div className={classes.featureBox}>
+            <div className={classes.iconCircle}>
+              <IconClock size={30} stroke={1.7} color="#ff3b3b" />
+            </div>
+            <Text className={classes.featureTitle}>AFTER HOURS DROP OFF</Text>
           </div>
-          <Text className={classes.featureTitle}>AFTER HOURS DROP OFF</Text>
-        </div>
 
-        <div className={classes.featureBox}>
-          <div className={classes.iconCircle}>
-            <IconWifi size={32} stroke={1.7} color="#ff3b3b" />
+          <div className={classes.featureBox}>
+            <div className={classes.iconCircle}>
+              <IconWifi size={30} stroke={1.7} color="#ff3b3b" />
+            </div>
+            <Text className={classes.featureTitle}>FREE WI-FI</Text>
           </div>
-          <Text className={classes.featureTitle}>FREE WI-FI</Text>
         </div>
 
         <div className={classes.logoRow}>

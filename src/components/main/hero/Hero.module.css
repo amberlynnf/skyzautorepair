@@ -204,12 +204,18 @@
 }
 
 @media (max-width: 992px) {
-  .inner {
-    padding-left: 20px;
-    padding-top: 60px;
-  }
-
+    .inner {
+      padding-left: 0 !important;   
+      padding-right: 0 !important;  
+      display: flex;
+      justify-content: center;    
+    }
+  
   .textBackdrop {
+    margin: 0 auto;            
+    max-width: 85%;      
+    margin: 0 auto;            
+    max-width: 85%;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -255,14 +261,18 @@
 
 @media (max-width: 575px) {
   .inner {
-    padding-left: 15px;
-    padding-top: 40px;
+    padding-left: 0 !important; 
+    padding-right: 0 !important;  
+    display: flex;
+    justify-content: center;
   }
 
   .textBackdrop {
     padding: 24px 28px;
     gap: 20px;
     border-radius: 10px;
+    margin: 0 auto;              
+    max-width: 90%;
   }
 
   .title {
@@ -306,6 +316,11 @@
 @media (max-width: 380px) {
   .title {
     font-size: 30px;
+  }
+
+  .textBackdrop {
+    max-width: 92%;
+    margin: 0 auto;
   }
 
   .description {
