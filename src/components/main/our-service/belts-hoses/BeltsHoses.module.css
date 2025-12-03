@@ -1,7 +1,7 @@
 .heroSection {
   width: 100%;
   height: 520px;
-  background-image: url("/images/acrepair.jpg");
+  background-image: url("/images/belthoses.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -147,8 +147,8 @@
 }
 
 .connector1 { top: 130px; }
-.connector2 { top: 530px; }
-.connector3 { top: 1320px; }
+.connector2 { top: 735px; }
+.connector3 { top: 1242px; }
 
 .bottomLine {
   width: 100%;

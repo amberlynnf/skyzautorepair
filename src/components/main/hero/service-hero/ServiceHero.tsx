@@ -10,28 +10,31 @@ import {
   IconCertificate,
   IconArrowsDiagonal,
 } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 import classes from "./ServiceHero.module.css";
 
 interface ServiceItem {
   title: string;
   icon: React.ReactNode;
+  path: string;
 }
 
 const services: ServiceItem[] = [
-  { title: "Auto A/C Repair", icon: <IconWind size={50} /> },
-  { title: "Belts & Hoses", icon: <IconTools size={50} /> },
-  { title: "Brake Repair", icon: <IconCarTurbine size={50} /> },
-  { title: "Engine Repair", icon: <IconEngine size={50} /> },
-  { title: "Exhaust System Repair", icon: <IconRoad size={50} /> },
-  { title: "Tire Rotation", icon: <IconRotate size={50} /> },
-  { title: "Vehicle Inspection", icon: <IconCertificate size={50} /> },
-  { title: "Wheel Alignment", icon: <IconArrowsDiagonal size={50} /> },
+  { title: "Auto A/C Repair", icon: <IconWind size={50} />, path: "/services/auto-ac-repair" },
+  { title: "Belts & Hoses", icon: <IconTools size={50} />, path: "/services/belts-hoses" },
+  { title: "Brake Repair", icon: <IconCarTurbine size={50} />, path: "/services/brake-repair" },
+  { title: "Engine Repair", icon: <IconEngine size={50} />, path: "/services/engine-repair" },
+  { title: "Exhaust System Repair", icon: <IconRoad size={50} />, path: "/services/exhaust-system-repair" },
+  { title: "Tire Rotation", icon: <IconRotate size={50} />, path: "/services/tire-rotation" },
+  { title: "Vehicle Inspection", icon: <IconCertificate size={50} />, path: "/services/vehicle-inspection" },
+  { title: "Wheel Alignment", icon: <IconArrowsDiagonal size={50} />, path: "/services/wheel-alignment" },
 ];
 
 export default function ServiceHero() {
   const [cardWidth, setCardWidth] = useState(345);
   const [visibleCards, setVisibleCards] = useState(6);
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,12 +43,10 @@ export default function ServiceHero() {
       if (w <= 480) {
         setVisibleCards(1);
         setCardWidth(242);
-      } 
-      else if (w <= 820) {
+      } else if (w <= 820) {
         setVisibleCards(2.2);
         setCardWidth(330);
-      } 
-      else {
+      } else {
         setVisibleCards(6);
         setCardWidth(345);
       }
@@ -83,7 +84,12 @@ export default function ServiceHero() {
             }}
           >
             {services.map((service, i) => (
-              <div key={i} className={classes.card}>
+              <div
+                key={i}
+                className={classes.card}
+                onClick={() => navigate(service.path)}
+                style={{ cursor: "pointer" }}
+              >
                 <div className={classes.outerRedCircle}>
                   <div className={classes.iconInnerCircle}>{service.icon}</div>
                 </div>
@@ -94,7 +100,9 @@ export default function ServiceHero() {
         </div>
 
         <div className={classes.bottomControls}>
-          <button onClick={prev} className={classes.navBtn}>‹</button>
+          <button onClick={prev} className={classes.navBtn}>
+            ‹
+          </button>
 
           <div className={classes.dotsWrapper}>
             {Array.from({ length: maxIndex + 1 }).map((_, d) => (
@@ -105,7 +113,9 @@ export default function ServiceHero() {
             ))}
           </div>
 
-          <button onClick={next} className={classes.navBtn}>›</button>
+          <button onClick={next} className={classes.navBtn}>
+            ›
+          </button>
         </div>
       </Container>
     </section>

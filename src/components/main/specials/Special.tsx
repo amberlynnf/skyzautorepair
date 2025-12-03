@@ -16,6 +16,7 @@ interface CouponProps {
   align: "left" | "right";
 }
 
+
 export function Specials({}: SpecialProps) {
     useEffect(() => {
       window.scrollTo({ top: 0, behavior: "auto" });

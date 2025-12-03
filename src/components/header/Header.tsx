@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 
@@ -41,6 +41,34 @@ export function Header({ opened, toggle }: HeaderProps) {
       }, 50);
     }
   };
+
+  useEffect(() => {
+    if (dropdownOpen) {
+      setTimeout(() => {
+        const activeItem = document.querySelector(`.${classes.servicesItem}.${classes.active}`);
+        if (activeItem) {
+          activeItem.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }, 50);
+    }
+  }, [dropdownOpen]);
+
+  useEffect(() => {
+    if (sidebarDropdownOpen) {
+      setTimeout(() => {
+        const activeItem = document.querySelector(`.${classes.sidebarDropdownItem}.${classes.sidebarActive}`);
+        if (activeItem) {
+          activeItem.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }, 50);
+    }
+  }, [sidebarDropdownOpen]);
 
   return (
     <>
@@ -107,7 +135,9 @@ export function Header({ opened, toggle }: HeaderProps) {
                   <Link
                     key={index}
                     to={service.path}
-                    className={classes.servicesItem}
+                    className={`${classes.servicesItem} ${
+                      isActive(service.path) ? classes.active : ""
+                    }`}
                     onClick={() => setDropdownOpen(false)}
                   >
                     {service.name}
@@ -170,7 +200,6 @@ export function Header({ opened, toggle }: HeaderProps) {
           CONTACT
         </Link>
 
-        
         <button
           className={classes.sidebarDropdownBtn}
           onClick={() => setSidebarDropdownOpen(!sidebarDropdownOpen)}
@@ -184,7 +213,9 @@ export function Header({ opened, toggle }: HeaderProps) {
               <Link
                 key={index}
                 to={service.path}
-                className={classes.sidebarDropdownItem}
+                className={`${classes.sidebarDropdownItem} ${
+                  isActive(service.path) ? classes.sidebarActive : ""
+                }`}
                 onClick={toggle}
               >
                 {service.name}
@@ -192,7 +223,6 @@ export function Header({ opened, toggle }: HeaderProps) {
             ))}
           </div>
         )}
-        
       </div>
     </>
   );
