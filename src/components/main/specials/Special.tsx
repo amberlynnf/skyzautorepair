@@ -4,6 +4,7 @@ import { Header } from "../../header/Header";
 import { Footer } from "../../footer/Footer";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { useDisclosure } from "@mantine/hooks";
 
 interface SpecialProps {
   id?: string;
@@ -15,7 +16,6 @@ interface CouponProps {
   expires: string;
   align: "left" | "right";
 }
-
 
 export function Specials({}: SpecialProps) {
     useEffect(() => {
@@ -175,9 +175,13 @@ export function Special({ id }: SpecialProps) {
     window.scrollTo(0, 0);
   }, []);
 
+  const [opened, handlers] = useDisclosure(false);
+  const toggle = () => handlers.toggle();
+
+
   return (
     <>
-      <Header opened={false} toggle={() => {}} />
+      <Header opened={opened} toggle={toggle} />
 
       <section id={id} className={classes.section}>
         <Container size="xl">

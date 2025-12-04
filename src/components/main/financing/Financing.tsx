@@ -3,6 +3,7 @@ import classes from "./Financing.module.css";
 import { Header } from "../../header/Header";
 import { Footer } from "../../footer/Footer";
 import { useEffect } from "react";
+import { useDisclosure } from "@mantine/hooks";
 
 interface FinancingProps {
   id?: string;
@@ -13,9 +14,12 @@ export function Financing({ id }: FinancingProps) {
     window.scrollTo(0, 0);
   }, []);
 
+  const [opened, handlers] = useDisclosure(false);
+  const toggle = () => handlers.toggle();
+
   return (
     <>
-      <Header opened={false} toggle={() => {}} />
+      <Header opened={opened} toggle={toggle} />
 
       <section id={id} className={classes.section}>
         <Container size="xl" className={classes.container}>

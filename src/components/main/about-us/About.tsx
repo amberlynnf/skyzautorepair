@@ -5,12 +5,11 @@ import { Footer } from "../../footer/Footer";
 import classes from "./About.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useDisclosure } from "@mantine/hooks";
 
 interface AboutProps {
   id?: string;
 }
-
-
 
 export function About({ id }: AboutProps) {
   useEffect(() => {
@@ -29,10 +28,12 @@ export function About({ id }: AboutProps) {
     AOS.refresh(); 
   }, []);
 
+  const [opened, handlers] = useDisclosure(false);
+  const toggle = () => handlers.toggle();
 
   return (
     <>
-      <Header opened={false} toggle={() => {}} />
+      <Header opened={opened} toggle={toggle} />
 
       <section id={id} className={classes.section}>
         <Container size="xl" className={classes.grid}>

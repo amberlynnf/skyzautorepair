@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 
@@ -32,6 +32,8 @@ export function Header({ opened, toggle }: HeaderProps) {
   const isActive = (path: string) => location.pathname === path;
 
   const handleHomeClick = () => {
+    if (opened) toggle();
+
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -47,10 +49,7 @@ export function Header({ opened, toggle }: HeaderProps) {
       setTimeout(() => {
         const activeItem = document.querySelector(`.${classes.servicesItem}.${classes.active}`);
         if (activeItem) {
-          activeItem.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
+          activeItem.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }, 50);
     }
@@ -59,26 +58,28 @@ export function Header({ opened, toggle }: HeaderProps) {
   useEffect(() => {
     if (sidebarDropdownOpen) {
       setTimeout(() => {
-        const activeItem = document.querySelector(`.${classes.sidebarDropdownItem}.${classes.sidebarActive}`);
+        const activeItem = document.querySelector(
+          `.${classes.sidebarDropdownItem}.${classes.sidebarActive}`
+        );
         if (activeItem) {
-          activeItem.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
+          activeItem.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }, 50);
     }
   }, [sidebarDropdownOpen]);
 
+  useEffect(() => {}, [location.pathname]);
+
+  const closeSidebarAndGo = (path: string) => {
+    if (opened) toggle();
+    navigate(path);
+  };
+
   return (
     <>
       <header className={classes.header}>
         <Link to="/" onClick={handleHomeClick}>
-          <img
-            src="/images/skyz-logo.png"
-            alt="Skyz Auto Repair Logo"
-            className={classes.logoImg}
-          />
+          <img src="/images/skyz-logo.png" alt="Skyz Auto Repair Logo" className={classes.logoImg} />
         </Link>
 
         <nav className={classes.nav}>
@@ -90,10 +91,7 @@ export function Header({ opened, toggle }: HeaderProps) {
             HOME
           </Link>
 
-          <Link
-            to="/about"
-            className={`${classes.link} ${isActive("/about") ? classes.active : ""}`}
-          >
+          <Link to="/about" className={`${classes.link} ${isActive("/about") ? classes.active : ""}`}>
             ABOUT
           </Link>
 
@@ -119,14 +117,9 @@ export function Header({ opened, toggle }: HeaderProps) {
           </Link>
 
           <div className={classes.dropdownContainer}>
-            <button
-              className={classes.dropdownBtn}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            >
+            <button className={classes.dropdownBtn} onClick={() => setDropdownOpen(!dropdownOpen)}>
               SERVICES
-              <span style={{ transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
-                ▼
-              </span>
+              <span style={{ transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)" }}>▼</span>
             </button>
 
             {dropdownOpen && (
@@ -171,7 +164,7 @@ export function Header({ opened, toggle }: HeaderProps) {
         <Link
           to="/about"
           className={`${classes.sidebarLink} ${isActive("/about") ? classes.sidebarActive : ""}`}
-          onClick={toggle}
+          onClick={() => closeSidebarAndGo("/about")}
         >
           ABOUT
         </Link>
@@ -179,7 +172,7 @@ export function Header({ opened, toggle }: HeaderProps) {
         <Link
           to="/specials"
           className={`${classes.sidebarLink} ${isActive("/specials") ? classes.sidebarActive : ""}`}
-          onClick={toggle}
+          onClick={() => closeSidebarAndGo("/specials")}
         >
           SPECIALS
         </Link>
@@ -187,7 +180,7 @@ export function Header({ opened, toggle }: HeaderProps) {
         <Link
           to="/financing"
           className={`${classes.sidebarLink} ${isActive("/financing") ? classes.sidebarActive : ""}`}
-          onClick={toggle}
+          onClick={() => closeSidebarAndGo("/financing")}
         >
           FINANCING
         </Link>
@@ -195,7 +188,7 @@ export function Header({ opened, toggle }: HeaderProps) {
         <Link
           to="/contact"
           className={`${classes.sidebarLink} ${isActive("/contact") ? classes.sidebarActive : ""}`}
-          onClick={toggle}
+          onClick={() => closeSidebarAndGo("/contact")}
         >
           CONTACT
         </Link>
@@ -216,7 +209,7 @@ export function Header({ opened, toggle }: HeaderProps) {
                 className={`${classes.sidebarDropdownItem} ${
                   isActive(service.path) ? classes.sidebarActive : ""
                 }`}
-                onClick={toggle}
+                onClick={() => closeSidebarAndGo(service.path)}
               >
                 {service.name}
               </Link>

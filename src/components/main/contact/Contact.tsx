@@ -20,8 +20,6 @@ interface ContactProps {
 }
 
 export function Contact({ id }: ContactProps) {
-  const [opened, { toggle }] = useDisclosure(false);
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -68,7 +66,8 @@ export function Contact({ id }: ContactProps) {
 
     setPhone(formatted);
   };
-
+  const [opened, handlers] = useDisclosure(false);
+  const toggle = () => handlers.toggle();
   return (
     <AppShell
       header={{ height: 60 }}

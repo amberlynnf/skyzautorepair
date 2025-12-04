@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Title, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import classes from "./AcRepair.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -18,10 +19,13 @@ export function AcRepair({}: AcRepairProps) {
   }, []);
 
   const navigate = useNavigate();
+  
+  const [opened, handlers] = useDisclosure(false);
+  const toggle = () => handlers.toggle();
 
   return (
     <>
-      <Header opened={false} toggle={() => {}} />
+      <Header opened={opened} toggle={toggle} />
         
       <section className={classes.heroSection}>
         <div className={classes.heroFade}></div>

@@ -12,19 +12,16 @@
   z-index: 9999;
 }
 
-
 .logoImg {
   height: 38px;
   object-fit: contain;
 }
-
 
 .nav {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-
 
 .link {
   color: white;
@@ -74,9 +71,8 @@
   padding: 10px 0;
   border-radius: 4px;
   z-index: 99999;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 
 .servicesItem {
   color: white;
@@ -89,90 +85,6 @@
 .servicesItem:hover {
   color: red;
   background-color: #2a2a2a;
-}
-
-
-@media (max-width: 575px) {
-  .nav {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 260px;
-    height: 100vh;
-    background: #1b1b1b;
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    transition: left 0.35s ease;
-    z-index: 99999;
-  }
-
-  .sidebar.open {
-    left: 0;
-  }
-
-  .sidebarLink {
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-  }
-
-  .sidebarLink:hover {
-    color: red;
-  }
-
-  .sidebarActive {
-    color: red !important;
-  }
-
-  .sidebarDropdownBtn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    text-align: left;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .sidebarDropdownMenu {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    gap: 8px;
-    margin-top: 6px;
-  }
-
-  .sidebarDropdownItem {
-    font-size: 16px;
-    font-weight: 600;
-    color: #dcdcdc;
-    cursor: pointer;
-  }
-
-  .sidebarDropdownItem:hover {
-    color: red;
-  }
-
-  .closeBtn {
-    font-size: 32px;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 20px;
-    align-self: flex-end;
-  }
 }
 
 .hamburger {
@@ -192,8 +104,10 @@
 
 .sidebar {
   position: fixed;
+  pointer-events: none;
   top: 0;
-  left: -260px;
+  left: 0;
+  transform: translateX(-100%);
   width: 260px;
   height: 100vh;
   background: #1b1b1b;
@@ -201,10 +115,16 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-
-  transition: left 0.35s ease;
+  transition: transform 0.35s ease;
   z-index: 99999;
+  overflow-y: auto;
 }
+
+.sidebar.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
 
 .sidebar.open {
   left: 0;
@@ -262,4 +182,33 @@
   cursor: pointer;
   margin-bottom: 20px;
   align-self: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  .sidebar {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .sidebar {
+    width: 260px;
+    padding: 40px 24px;
+  }
+
+  .sidebarLink {
+    font-size: 18px;
+  }
+
+  .sidebarDropdownItem {
+    font-size: 16px;
+  }
 }
