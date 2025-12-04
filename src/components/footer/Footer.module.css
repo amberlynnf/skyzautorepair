@@ -44,9 +44,6 @@
   height: auto;
 }
 
-.quickLinks {
-  flex: 1;
-}
 
 .heading {
   font-size: 26px;
@@ -155,10 +152,6 @@
     justify-content: center;
   }
 
-  .quickLinks,
-  .storeColumn {
-    width: 45%;
-  }
 
   .heading {
     font-size: 22px;
@@ -195,11 +188,6 @@
 
   .logo {
     width: 200px;
-  }
-
-  .quickLinks,
-  .storeColumn {
-    width: 100%;
   }
 
   .link {

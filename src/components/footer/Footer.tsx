@@ -23,18 +23,6 @@ export function Footer({ id }: FooterProps) {
         </div>
 
         
-        <div className={classes.quickLinks}>
-          <Title order={3} className={classes.heading}>QUICK LINKS:</Title>
-
-          <Text className={classes.link}>HOME</Text>
-          <Text className={classes.link}>ABOUT</Text>
-          <Text className={classes.link}>SPECIALS</Text>
-          <Text className={classes.link}>FINANCING</Text>
-          <Text className={classes.link}>CONTACT</Text>
-          <Text className={classes.link}>MOTOVISUALS</Text>
-        </div>
-
-        
         <div className={classes.storeColumn}>
           <Title order={3} className={classes.heading}>STORE INFO:</Title>
 
