@@ -7,6 +7,7 @@ import {
   Textarea,
   Button,
 } from "@mantine/core";
+import emailjs from "emailjs-com";
 import { useDisclosure } from "@mantine/hooks";
 import { useState, useEffect } from "react";
 import { Header } from "../../header/Header";
@@ -24,31 +25,66 @@ export function Contact({ id }: ContactProps) {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [opened, handlers] = useDisclosure(false);
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []); 
-  
-      useEffect(() => {
-      window.scrollTo(0, 0);
-  
-      AOS.init({
-        duration: 900,
-        once: true,
-        easing: "ease-out",
-      });
-  
-      AOS.refresh(); 
-    }, []);
-  
+  const toggle = () => handlers.toggle();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: "ease-out",
+    });
+    AOS.refresh();
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, phone, email, comments });
+
+    const currentTime = new Date().toLocaleString("en-US", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    const templateParams = {
+      name,
+      phone,
+      email,
+      comments,
+      time: currentTime,
+    };
+
+    emailjs
+      .send(
+        "service_xffe988",
+        "template_j1y41rx",
+        templateParams,
+        "KRvDHah-gXHDfr9h0"
+      )
+      .then(() => {
+        setSuccessMessage(
+          "Message sent successfully. Our team will reach out shortly."
+        );
+
+        setName("");
+        setPhone("");
+        setEmail("");
+        setComments("");
+
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 6000);
+      })
+      .catch((error) => {
+        console.error("Email send failed:", error);
+        setSuccessMessage("Failed to send message. Please try again later.");
+      });
   };
 
   const handlePhoneChange = (value: string) => {
@@ -66,8 +102,7 @@ export function Contact({ id }: ContactProps) {
 
     setPhone(formatted);
   };
-  const [opened, handlers] = useDisclosure(false);
-  const toggle = () => handlers.toggle();
+
   return (
     <AppShell
       header={{ height: 60 }}
@@ -88,6 +123,7 @@ export function Contact({ id }: ContactProps) {
       padding={0}
     >
       <Header opened={opened} toggle={toggle} />
+
       <div id={id} className={classes.root}>
         <Container size="lg" className={classes.inner}>
           <div className={classes.card}>
@@ -169,9 +205,14 @@ export function Contact({ id }: ContactProps) {
               <Button type="submit" className={classes.submit}>
                 SUBMIT
               </Button>
+
+              {successMessage && (
+                <div className={classes.successBox}>{successMessage}</div>
+              )}
             </form>
           </div>
         </Container>
+
         <div className={classes.bottomLine}></div>
         <Footer />
       </div>
@@ -180,3 +221,4 @@ export function Contact({ id }: ContactProps) {
 }
 
 export default Contact;
+  
