@@ -1,17 +1,22 @@
-html, body, #root {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
   width: 100%;
-  height: auto;
   min-height: 100%;
-  overflow-x: hidden;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  text-align: left !important;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   display: block;
+  text-align: left;
+  overflow-x: hidden;
 }
-
