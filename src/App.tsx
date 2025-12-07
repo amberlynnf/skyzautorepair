@@ -6,7 +6,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-
 export default function App() {
   useEffect(() => {
     AOS.init({
@@ -16,18 +15,8 @@ export default function App() {
     });
   }, []);
 
-  const mantineProps: Record<string, unknown> = {
-    theme: {
-      ...theme,
-      colorScheme: "light", 
-    },
-    defaultColorScheme: "light", 
-  };
-
-  (mantineProps as any).forceColorScheme = "light";
-
   return (
-    <MantineProvider {...(mantineProps as any)}>
+    <MantineProvider theme={theme}>
       <Router />
     </MantineProvider>
   );
