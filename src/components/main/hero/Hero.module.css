@@ -5,6 +5,14 @@
   background: black;
 }
 
+.rowBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
 .overlay {
   position: absolute;
   inset: 0;
@@ -47,6 +55,7 @@
 
 .textBackdrop {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
@@ -86,7 +95,7 @@
 }
 
 .description {
-  color: #e8e8e8;
+  color: #ff0000;
   font-size: 22px;
   font-weight: 500;
   line-height: 1.35;
@@ -95,22 +104,23 @@
     0px 2px 6px rgba(0, 0, 0, 0.55),
     0px 0px 4px rgba(0, 0, 0, 0.45);
 
-  -webkit-text-stroke: 0.2px rgba(255, 60, 60, 0.9);
+  -webkit-text-stroke: 0.2px rgba(72, 7, 7, 0.9);
 }
 
 .white {
   color: #ffffff;
-  -webkit-text-stroke: 1px rgba(0,0,0,0.4);
-  text-shadow: 0px 3px 6px rgba(0,0,0,0.6);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
 .red {
   color: #ff4040;
-  -webkit-text-stroke: 1px rgba(0,0,0,0.6);
-  text-shadow: 0px 3px 6px rgba(0,0,0,0.7);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
 .rightTitleBox {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -118,17 +128,17 @@
 }
 
 .specialTop {
-  font-size: 26px;
+  font-size: 36px;
   font-weight: 900;
   text-transform: uppercase;
   color: white;
 
-  -webkit-text-stroke: 1px rgba(0,0,0,0.45);
-  text-shadow: 0px 3px 6px rgba(0,0,0,0.7);
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
 .specialBottom {
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 800;
   text-transform: uppercase;
   display: flex;
@@ -142,11 +152,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 
   align-items: center;  
-  justify-content: center; 
+  text-align: center;   
 }
+
 
 
 .subTitle {
@@ -166,7 +176,7 @@
 
 
 .logoTech {
-  width: 180px;
+  width: 130px;
   height: auto;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
 }
@@ -234,7 +244,7 @@
   }
 
   .logoTech {
-    width: 260px;
+    width: 170px;
   }
 
   .subTitle {
@@ -268,24 +278,31 @@
   }
 }
 
-
 @media (max-width: 992px) {
   .inner {
-    padding-left: 0 !important;   
-    padding-right: 0 !important;  
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
   }
-  
+
   .textBackdrop {
-    margin: 0 auto;            
-    max-width: 85%;
+    margin: 0 auto;
+    max-width: 90%;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 30px;
-    padding: 30px 35px;
-    max-width: 90%;
+    gap: 32px;
+    padding: 32px 35px;
+  }
+
+  .specialTop {
+    font-size: 40px;
+  }
+
+  .specialBottom {
+    font-size: 22px;
+    line-height: 1.2;
   }
 
   .leftBox {
@@ -298,109 +315,89 @@
   }
 
   .logoTitle {
-    width: 300px;
+    width: 280px; 
     margin: 0 auto;
   }
 
   .description {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .rightBox {
-    gap: 16px;
-    align-items: center !important;     
-    justify-content: center !important; 
+    gap: 18px;
+    align-items: center !important;
+    justify-content: center !important;
     text-align: center;
   }
 
-  .subTitle {
-    font-size: 20px;
-  }
-
   .techWrapper {
-    flex-direction: row;
-    gap: 14px;
+    gap: 12px;
   }
 
   .logoTech {
-    width: 150px;
-    margin: 0 auto; 
+    width: 130px; 
+    margin: 0 auto;
   }
 
   .appointmentBtn {
     padding: 12px 24px;
     font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   }
 }
 
-
-@media (max-width: 575px) {
-  .inner {
-    padding-left: 0 !important; 
-    padding-right: 0 !important;  
-    display: flex;
-    justify-content: center;
-  }
-
+@media (max-width: 768px) {
   .textBackdrop {
-    padding: 24px 28px;
-    gap: 20px;
-    border-radius: 10px;
-    margin: 0 auto;              
-    max-width: 90%;
-    text-align: center;
-  }
-
-  .logoTitle {
-    width: 220px;
-    margin: 0 auto;
-  }
-
-  .description {
-    font-size: 16px;
+    padding: 28px 28px;
+    gap: 26px;
   }
 
   .specialTop {
-    font-size: 20px;
+    font-size: 38px;
   }
 
   .specialBottom {
-    font-size: 13px;
+    font-size: 19px;
   }
 
-  .rightBox {
-    gap: 14px;
-    align-items: center !important;     
-    justify-content: center !important; 
-    text-align: center;
+  .logoTitle {
+    width: 240px;
   }
 
-  .subTitle {
-    font-size: 18px;
-  }
-
-  .techWrapper {
-    flex-direction: column;
-    gap: 12px;
+  .description {
+    font-size: 17px;
   }
 
   .logoTech {
-    width: 120px;
+    width: 110px;
   }
 
   .appointmentBtn {
-    width: 100%;
-    max-width: 260px;
-    padding: 12px 20px;
     font-size: 15px;
-    border-radius: 6px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 11px 20px;
   }
 }
 
+@media (max-width: 575px) {
+  .rowBox {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 24px !important;
+    width: 100%;
+  }
+
+  .leftBox, 
+  .rightBox {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .rightTitleBox {
+    width: 100%;
+    text-align: center !important;
+  }
+}
 
 @media (max-width: 380px) {
   .logoTitle {
@@ -423,6 +420,3 @@
     margin: 0 auto;
   }
 }
-
-
-

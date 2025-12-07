@@ -36,8 +36,20 @@ export function Hero({ id }: HeroProps) {
       </div>
 
       <Container size="lg" className={classes.inner}>
-        <div className={classes.textBackdrop}>
+      <div className={classes.textBackdrop}>
 
+        <div className={classes.rightTitleBox}>
+          <Text className={classes.specialTop}>SPECIALIST IN</Text>
+          <Text className={classes.specialBottom}>
+            <span className={classes.red}>A.D.A.S.</span>
+            <span className={classes.white}> — </span>
+            <span className={classes.red}>1234yf Refrigerant</span>
+            <span className={classes.white}> — </span>
+            <span className={classes.red}>Electrical</span>
+          </Text>
+        </div>
+        <div className={classes.rowBox}>
+          
           <div className={classes.leftBox}>
             <div className={classes.redStroke}></div>
 
@@ -53,37 +65,22 @@ export function Hero({ id }: HeroProps) {
           </div>
 
           <div className={classes.rightBox}>
-            <div className={classes.rightTitleBox}>
-              <Text className={classes.specialTop}>SPECIALIST IN</Text>
-              <Text className={classes.specialBottom}>
-                <span className={classes.red}>A.D.A.S.</span>
-                <span className={classes.white}> — </span>
-                <span className={classes.red}>1234yf Refrigerant</span>
-                <span className={classes.white}> — </span>
-                <span className={classes.red}>Electrical</span>
-              </Text>
-            </div>
-
             <div className={classes.techWrapper}>
-              <img
-                src="/images/technetspanish.png"
-                alt="technet spanish"
-                className={classes.logoTech}
-              />
-
-              <img
-                src="/images/technetenglish.png"
-                alt="technet english"
-                className={classes.logoTech}
-              />
+              <img src="/images/technetspanish.png" className={classes.logoTech} />
+              <img src="/images/technetenglish.png" className={classes.logoTech} />
             </div>
 
-            <button className={classes.appointmentBtn} onClick={() => navigate('/contact')}>
-               REQUEST AN APPOINTMENT
+            <button
+              className={classes.appointmentBtn}
+              onClick={() => navigate("/contact")}
+            >
+              REQUEST AN APPOINTMENT
             </button>
-
           </div>
+
         </div>
+
+      </div>
       </Container>
     </div>
   );
