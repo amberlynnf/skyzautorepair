@@ -71,20 +71,10 @@
   font-weight: 900;
   color: #c40000;
 
-  -webkit-text-stroke: 2px white; 
+  -webkit-text-stroke: 2px rgba(35, 35, 35, 0.274); 
   -webkit-text-fill-color: #c40000;
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-}
-
-.subText {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 28px;
-  color: #555;
-  margin-top: 10px;
-
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
 }
 
 .wrapper {

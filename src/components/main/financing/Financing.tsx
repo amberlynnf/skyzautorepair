@@ -38,12 +38,19 @@ export function Financing({ id }: FinancingProps) {
             </a>
 
             <div className={classes.textBox}>
-              <Title className={classes.title}>
+              <Title
+                className={classes.title}
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-easing="ease-out"
+              >
                 6 MONTHS PROMOTIONAL FINANCING
               </Title>
+
               <Text className={classes.subtitle}>
                 on purchases of $199 or more.
               </Text>
+
               <Text className={classes.note}>
                 Click the image to know more.
               </Text>
@@ -51,7 +58,8 @@ export function Financing({ id }: FinancingProps) {
           </div>
         </Container>
       </section>
-            <div className={classes.bottomLine}></div>
+
+      <div className={classes.bottomLine}></div>
       <Footer />
     </>
   );

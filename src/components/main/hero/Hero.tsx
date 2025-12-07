@@ -1,4 +1,4 @@
-import { Text, Title, Container } from "@mantine/core";
+import { Text, Container } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./Hero.module.css";
@@ -41,31 +41,42 @@ export function Hero({ id }: HeroProps) {
           <div className={classes.leftBox}>
             <div className={classes.redStroke}></div>
 
-            <Title order={1} className={classes.title}>
-              SKYZ AUTO REPAIR
-            </Title>
+            <img
+              src="/images/skyz-logo.png"
+              alt="Skyz Auto Repair Logo"
+              className={classes.logoTitle}
+            />
 
             <Text className={classes.description}>
               Full-Service Preventive Maintenance and Automotive Repair Center
             </Text>
           </div>
-          <div className={classes.rightBox}>
-          <div className={classes.rightTitleBox}>
-            <Text className={classes.specialTop}>SPECIALIST IN</Text>
-            <Text className={classes.specialBottom}>
-              <span className={classes.red}>A.D.A.S.</span>
-              <span className={classes.white}> — </span>
-              <span className={classes.red}>1234yf Refrigerant</span>
-              <span className={classes.white}> — </span>
-              <span className={classes.red}>Electrical</span>
-            </Text>
-          </div>
 
-            <img
-              src="/images/technet.png"
-              alt="technet"
-              className={classes.logoTech}
-            />
+          <div className={classes.rightBox}>
+            <div className={classes.rightTitleBox}>
+              <Text className={classes.specialTop}>SPECIALIST IN</Text>
+              <Text className={classes.specialBottom}>
+                <span className={classes.red}>A.D.A.S.</span>
+                <span className={classes.white}> — </span>
+                <span className={classes.red}>1234yf Refrigerant</span>
+                <span className={classes.white}> — </span>
+                <span className={classes.red}>Electrical</span>
+              </Text>
+            </div>
+
+            <div className={classes.techWrapper}>
+              <img
+                src="/images/technetspanish.png"
+                alt="technet spanish"
+                className={classes.logoTech}
+              />
+
+              <img
+                src="/images/technetenglish.png"
+                alt="technet english"
+                className={classes.logoTech}
+              />
+            </div>
 
             <button className={classes.appointmentBtn} onClick={() => navigate('/contact')}>
                REQUEST AN APPOINTMENT

@@ -30,7 +30,7 @@ export function Footer({ id }: FooterProps) {
             <IconMapPinFilled className={classes.icon} />
             <Text className={classes.address}>
               <a href="https://maps.app.goo.gl/d49L1ihn1TNVbVzUA" target="_blank" rel="noopener noreferrer">
-                13830 Brownsville St, Houston, TX 77015, United States
+                13830 Brownsville St, Houston, TX 77015.
               </a>
             </Text>
           </div>

@@ -78,10 +78,8 @@ export function Header({ opened, toggle }: HeaderProps) {
   return (
     <>
       <header className={classes.header}>
-        <Link to="/" onClick={handleHomeClick}>
-          <img src="/images/skyz-logo.png" alt="Skyz Auto Repair Logo" className={classes.logoImg} />
-        </Link>
-
+          <h1 className={classes.logoText}>SKYZ AUTO REPAIR</h1>
+        
         <nav className={classes.nav}>
           <Link
             to="/"
