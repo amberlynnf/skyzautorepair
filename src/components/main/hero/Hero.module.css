@@ -99,23 +99,18 @@
   font-size: 22px;
   font-weight: 500;
   line-height: 1.35;
-
   text-shadow:
     0px 2px 6px rgba(0, 0, 0, 0.55),
     0px 0px 4px rgba(0, 0, 0, 0.45);
-
-  -webkit-text-stroke: 0.2px rgba(72, 7, 7, 0.9);
 }
 
 .white {
   color: #ffffff;
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
   text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
 .red {
   color: #ff4040;
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
   text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
@@ -132,8 +127,6 @@
   font-weight: 900;
   text-transform: uppercase;
   color: white;
-
-  -webkit-text-stroke: 1px rgb(0, 0, 0);
   text-shadow: 0px 3px 6px rgb(0, 0, 0);
 }
 
